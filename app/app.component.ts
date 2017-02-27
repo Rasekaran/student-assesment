@@ -3,6 +3,7 @@ import { TopbarService } from './service/Topbar.service';
 
 @Component({
   selector: 'my-app',
+  providers:[TopbarService],
   template: `
             <div id="wrapper">
 
@@ -17,7 +18,8 @@ import { TopbarService } from './service/Topbar.service';
                       <div class="row">
                           <div class="col-lg-12">
                               <!-- Router Outlet -->
-                              <router-outlet></router-outlet>
+                              <router-outlet >
+                              </router-outlet>
                           </div>
                       </div>
                   </div>
@@ -27,4 +29,6 @@ import { TopbarService } from './service/Topbar.service';
           </div>
             `
 })
-export class AppComponent  {}
+export class AppComponent  {//[topbarService] = "topbarService"
+    // topbarService: TopbarService;
+}

@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TopbarService } from '../service/Topbar.service';
 
 @Component({
     selector:'top-bar',
-    providers:[TopbarService],
     template:`<div id="top-bar">
                 <div>{{pageName}}</div>
               </div>
@@ -17,6 +16,5 @@ import { TopbarService } from '../service/Topbar.service';
 
 export class TopbarComponent {
 
-    constructor( router: Router, topbarService: TopbarService ) {
-    }
+    // @Input() topbarService: TopbarService;
 }
