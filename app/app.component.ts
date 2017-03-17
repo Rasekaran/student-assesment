@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { TopbarService } from './service/Topbar.service';
 
 @Component({
   selector: 'my-app',
-  providers:[TopbarService],
+  providers: [TopbarService],
   template: `
             <div id="wrapper">
 
@@ -31,4 +31,7 @@ import { TopbarService } from './service/Topbar.service';
 })
 export class AppComponent  {//[topbarService] = "topbarService"
     // topbarService: TopbarService;
+
+    constructor( @Inject( TopbarService ) private topbarService : TopbarService ){
+    }
 }

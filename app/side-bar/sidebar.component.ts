@@ -4,15 +4,26 @@ import { Component } from '@angular/core';
     selector:'side-bar',
     template:`<div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
-                    <li *ngFor="let menu of menus">
-                        <a [routerLink]="['/dashboard']">{{menu}}</a>
+                    <li *ngFor="let menu of menus.keys()">
+                        <a href="/{{menu}}">{{menus.get( menu )}}</a>
                     </li>
                 </ul>
             </div>`,
 })
 
 export class SidebarComponent {
-    menus = [ "dashboard", "exams", "students", "Staff", "Classrooms", "Reports" ];
+    private menus: Map<string, string>;
+    constructor() {
+        this.menus = new Map<string, string>();
+        this.menus.set( "dashboard", "Dashboard" );
+        this.menus.set( "exams", "Exams" );
+        this.menus.set( "students/new", "Students" );
+        this.menus.set( "staff/new", "Staff" );
+        this.menus.set( "classroom/new", "Classroom" );
+        this.menus.set( "reports/new", "Reports" );
+    }
+    // menus.se
+    // [ "dashboard", "exams", "students", "Staff", "Classrooms", "Reports" ];
 }
 
 // @Component({

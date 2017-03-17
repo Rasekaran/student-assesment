@@ -1,21 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TopbarService } from '../service/Topbar.service';
 
 @Component({
     selector:'exams',
     template:`<div>
-                <p>Dashboard</p>
+                <p>Exams</p>
             </div>`,
 })
 
 export class ExamsComponent implements OnInit {
-    // @Input() topbarService: TopbarService;
+    constructor( @Inject( TopbarService ) private topbarService : TopbarService ) {
+    }
 
     ngOnInit() {
-        // this.topbarService.pageName = "Dashboard";
-        // this.topbarService.navList = new Map<string,string>();
-        // this.topbarService.navList.set( "new", "New" );
-        // this.topbarService.navList.set( "search", "Search" );
+        this.topbarService.pageName = "Exams";
+        this.topbarService.navList = new Map<string,string>();
+        this.topbarService.navList.set( "exams/new", "New" );
+        this.topbarService.navList.set( "exams/search", "Search" );
     }
 }
